@@ -1,11 +1,17 @@
 /* eslint-disable react/destructuring-assignment */
 /* eslint-disable react/no-unused-state */
 import React, { Component } from 'react';
-import { BrowserRouter as Router, Route, Switch, Link } from 'react-router-dom';
+import {
+  BrowserRouter as Router,
+  Route,
+  Switch,
+  Redirect,
+} from 'react-router-dom';
 import Header from './components/header/Header';
 import Footer from './components/footer/Footer';
 import Hero from './components/hero/Hero';
 import ProductsLayout from './components/layouts/ProductsLayout';
+import ProductDetail from './components/products/ProductDetail';
 
 export default class App extends Component {
   render() {
@@ -15,8 +21,9 @@ export default class App extends Component {
           <Header />
           <Hero />
           <Switch>
+            <Route exact path="/" render={() => <Redirect to="/products" />} />
             <Route exact path="/products" component={ProductsLayout} />
-            <Route exact path="/:id" component={Test} />
+            <Route exact path="/:id" component={ProductDetail} />
           </Switch>
           <Footer />
         </Router>
@@ -24,5 +31,3 @@ export default class App extends Component {
     );
   }
 }
-
-const Test = ({ match }) => <h1>{match.params.id}</h1>;
