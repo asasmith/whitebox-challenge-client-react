@@ -4,7 +4,7 @@ import HeaderMobile from './HeaderMobile';
 import MobileMenu from './MobileMenu';
 
 const Header = () => (
-  <header>
+  <header className="header1">
     <HeaderDesktop />
     <HeaderMobile />
     <MobileMenu />
