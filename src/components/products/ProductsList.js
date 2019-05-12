@@ -1,6 +1,7 @@
 /* eslint-disable react/destructuring-assignment */
 import React, { Component } from 'react';
 import ProductCard from './ProductCard';
+import FilterBar from './FilterBar';
 import './bootstrap-grid.css';
 
 export default class ProductList extends Component {
@@ -27,10 +28,13 @@ export default class ProductList extends Component {
 
   render() {
     return (
-      <div className="row">
-        {this.state.products.map(product => (
-          <ProductCard key={product._id} product={product} />
-        ))}
+      <div className="col-sm-6 col-md-8 col-lg-9 p-b-50">
+        <FilterBar />
+        <div className="row">
+          {this.state.products.map(product => (
+            <ProductCard key={product._id} product={product} />
+          ))}
+        </div>
       </div>
     );
   }
