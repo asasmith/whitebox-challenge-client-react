@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 const ProductCard = ({ product }) => (
   <div className="col-sm-12 col-md-6 col-lg-4 p-b-50">
@@ -7,13 +8,13 @@ const ProductCard = ({ product }) => (
         <img src={product.image} alt="IMG-PRODUCT" />
 
         <div className="block2-overlay trans-0-4">
-          <a href="#" className="block2-btn-addwishlist hov-pointer trans-0-4">
+          <div className="block2-btn-addwishlist hov-pointer trans-0-4">
             <i className="icon-wishlist icon_heart_alt" aria-hidden="true" />
             <i
               className="icon-wishlist icon_heart dis-none"
               aria-hidden="true"
             />
-          </a>
+          </div>
 
           <div className="block2-btn-addcart w-size1 trans-0-4">
             <button
@@ -26,16 +27,14 @@ const ProductCard = ({ product }) => (
         </div>
       </div>
 
-      <div className="block2-txt p-t-20">
-        <a
-          href="product-detail.html"
-          className="block2-name dis-block s-text3 p-b-5"
-        >
-          {product.name}
-        </a>
-
-        <span className="block2-price m-text6 p-r-5">{product.price}</span>
-      </div>
+      <Link to={`/${product._id}`}>
+        <div className="block2-txt p-t-20">
+          <div className="block2-name dis-block s-text3 p-b-5">
+            {product.name}
+          </div>
+          <span className="block2-price m-text6 p-r-5">{product.price}</span>
+        </div>
+      </Link>
     </div>
   </div>
 );

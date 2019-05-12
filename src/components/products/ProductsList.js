@@ -1,3 +1,4 @@
+/* eslint-disable no-use-before-define */
 /* eslint-disable react/destructuring-assignment */
 import React, { Component } from 'react';
 import ProductCard from './ProductCard';

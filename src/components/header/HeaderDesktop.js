@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 const HeaderDesktop = () => (
   <div className="container-menu-header">
@@ -29,10 +30,11 @@ const HeaderDesktop = () => (
 
     <div className="wrap_header">
       {/* <!-- Logo --> */}
-      <a href="index.html" className="logo">
-        <img src="images/icons/logo.png" alt="IMG-LOGO" />
-      </a>
-
+      <Link to="/products">
+        <div className="logo">
+          <img src="images/icons/logo.png" alt="IMG-LOGO" />
+        </div>
+      </Link>
       {/* <!-- Menu --> */}
       <div className="wrap_menu">
         <nav className="menu">
