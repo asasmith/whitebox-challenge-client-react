@@ -1,3 +1,4 @@
+const path = require('path');
 const HtmlWebPackPlugin = require('html-webpack-plugin');
 // const CopyPlugin = require('copy-webpack-plugin');
 
@@ -20,6 +21,10 @@ const htmlPlugin = new HtmlWebPackPlugin({
 
 module.exports = {
   entry: ['babel-polyfill', './src/index'],
+  output: {
+    path: path.resolve(__dirname, 'dist'),
+    publicPath: '/',
+  },
   module: {
     rules: [
       {
@@ -38,6 +43,9 @@ module.exports = {
         use: ['file-loader'],
       },
     ],
+  },
+  devServer: {
+    historyApiFallback: true,
   },
   plugins: [htmlPlugin],
 };
