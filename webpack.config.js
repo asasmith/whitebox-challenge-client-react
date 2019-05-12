@@ -20,7 +20,7 @@ const htmlPlugin = new HtmlWebPackPlugin({
 // ]);
 
 module.exports = {
-  entry: ['babel-polyfill', './src/index'],
+  entry: ['babel-polyfill', 'jquery', './src/index'],
   output: {
     path: path.resolve(__dirname, 'dist'),
     publicPath: '/',
@@ -40,6 +40,10 @@ module.exports = {
       },
       {
         test: /\.(png|svg|jpg|gif)$/,
+        use: ['file-loader'],
+      },
+      {
+        test: /\.(woff|woff2|eot|ttf|otf)$/,
         use: ['file-loader'],
       },
     ],
