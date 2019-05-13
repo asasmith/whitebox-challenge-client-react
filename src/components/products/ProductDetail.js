@@ -16,7 +16,7 @@ export default class ProductDetail extends Component {
   async componentDidMount() {
     try {
       const res = await fetch(
-        `http://localhost:1111/products/${this.props.match.params.id}`
+        `http://localhost:1111/products/${this.props.id}`
       );
       const product = await res.json();
       this.setState({
@@ -29,8 +29,7 @@ export default class ProductDetail extends Component {
 
   render() {
     const { name, image, price, about, tags = [] } = this.state.product;
-    // why is tags undefined on first render but nothing else is?
-    // setting default value in destructing fixes
+    console.log(tags);
 
     return (
       <div className="container bgwhite p-t-35 p-b-80">
@@ -127,7 +126,7 @@ export default class ProductDetail extends Component {
 
             <div className="p-b-45">
               <span className="s-text8 m-r-35">SKU: MUG-01</span>
-              <span className="s-text8">Categories: {tags.join(', ')}</span>
+              <span className="s-text8">Categories:{tags.join(' ')}</span>
             </div>
 
             <div className="wrap-dropdown-content bo6 p-t-15 p-b-14 active-dropdown-content">
