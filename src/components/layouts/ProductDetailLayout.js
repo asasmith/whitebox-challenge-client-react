@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 
+import Breadcrumbs from '../breadcrumbs/Breadcrumbs';
 import ProductDetail from '../products/ProductDetail';
 import '../../css/main.css';
 import '../../css/util.css';
@@ -15,6 +16,7 @@ export default class ProductDetailLayout extends Component {
     } = this.props;
     return (
       <div>
+        <Breadcrumbs />
         <ProductDetail id={id} />
       </div>
     );
