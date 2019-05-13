@@ -29,7 +29,6 @@ export default class ProductDetail extends Component {
 
   render() {
     const { name, image, price, about, tags = [] } = this.state.product;
-    console.log(tags);
 
     return (
       <div className="container bgwhite p-t-35 p-b-80">
