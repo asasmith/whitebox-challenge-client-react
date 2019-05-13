@@ -2,6 +2,7 @@
 /* eslint-disable jsx-a11y/label-has-associated-control */
 // Todo review these jsx-ally issues
 import React from 'react';
+import Slider from '../slider/Slider';
 
 const SideBar = () => (
   <div className="col-sm-6 col-md-4 col-lg-3 p-b-50">
@@ -46,7 +47,9 @@ const SideBar = () => (
         <div className="m-text15 p-b-17">Price</div>
 
         <div className="wra-filter-bar">
-          <div id="filter-bar" />
+          <div id="filter-bar">
+            <Slider />
+          </div>
         </div>
 
         <div className="flex-sb-m flex-w p-t-16">

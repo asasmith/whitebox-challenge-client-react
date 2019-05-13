@@ -1,10 +1,15 @@
 const path = require('path');
+const webpack = require('webpack');
 const HtmlWebPackPlugin = require('html-webpack-plugin');
 // const CopyPlugin = require('copy-webpack-plugin');
 
 const htmlPlugin = new HtmlWebPackPlugin({
   template: './src/index.html',
   filename: './index.html',
+});
+
+const providePlugin = new webpack.ProvidePlugin({
+  noUiSlider: 'nouislider',
 });
 
 // this isn't working how I hoped it would
@@ -51,5 +56,5 @@ module.exports = {
   devServer: {
     historyApiFallback: true,
   },
-  plugins: [htmlPlugin],
+  plugins: [htmlPlugin, providePlugin],
 };
