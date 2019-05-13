@@ -1,6 +1,7 @@
 import React from 'react';
+import ProductList from './ProductsList';
 
-const FilterBar = () => (
+const FilterBar = ({ products }) => (
   <div className="flex-sb-m flex-w p-b-35">
     <div className="flex-w">
       <div className="rs2-select2 bo4 of-hidden w-size12 m-t-5 m-b-5 m-r-10">
@@ -24,7 +25,9 @@ const FilterBar = () => (
       </div>
     </div>
 
-    <span className="s-text8 p-t-5 p-b-5">Showing 1–12 of 16 results</span>
+    <span className="s-text8 p-t-5 p-b-5">
+      Showing 1–{products.length} of {products.length} results
+    </span>
   </div>
 );
 

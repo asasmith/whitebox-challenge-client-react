@@ -29,7 +29,7 @@ export default class ProductList extends Component {
   render() {
     return (
       <div className="col-sm-6 col-md-8 col-lg-9 p-b-50">
-        <FilterBar />
+        <FilterBar products={this.state.products} />
         <div className="row">
           {this.state.products.map(product => (
             <ProductCard key={product._id} product={product} />
