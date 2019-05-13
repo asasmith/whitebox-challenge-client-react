@@ -21,7 +21,6 @@ export default class ProductList extends Component {
       this.setState({
         products,
       });
-      console.log(this.state.products);
     } catch (e) {
       console.log(e);
     }
