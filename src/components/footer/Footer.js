@@ -1,4 +1,9 @@
 import React from 'react';
+import visaImg from '../../images/icons/visa.png';
+import mastercardImg from '../../images/icons/mastercard.png';
+import paypalImg from '../../images/icons/paypal.png';
+import discoverImg from '../../images/icons/discover.png';
+import amExImg from '../../images/icons/express.png';
 
 const Footer = () => (
   <footer className="bg6 p-t-45 p-b-43 p-l-45 p-r-45">
@@ -140,39 +145,23 @@ const Footer = () => (
 
     <div className="t-center p-l-15 p-r-15">
       <a href="#">
-        <img
-          className="h-size2"
-          src="images/icons/paypal.png"
-          alt="IMG-PAYPAL"
-        />
+        <img className="h-size2" src={paypalImg} alt="IMG-PAYPAL" />
       </a>
 
       <a href="#">
-        <img className="h-size2" src="images/icons/visa.png" alt="IMG-VISA" />
+        <img className="h-size2" src={visaImg} alt="IMG-VISA" />
       </a>
 
       <a href="#">
-        <img
-          className="h-size2"
-          src="images/icons/mastercard.png"
-          alt="IMG-MASTERCARD"
-        />
+        <img className="h-size2" src={mastercardImg} alt="IMG-MASTERCARD" />
       </a>
 
       <a href="#">
-        <img
-          className="h-size2"
-          src="images/icons/express.png"
-          alt="IMG-EXPRESS"
-        />
+        <img className="h-size2" src={amExImg} alt="IMG-EXPRESS" />
       </a>
 
       <a href="#">
-        <img
-          className="h-size2"
-          src="images/icons/discover.png"
-          alt="IMG-DISCOVER"
-        />
+        <img className="h-size2" src={discoverImg} alt="IMG-DISCOVER" />
       </a>
 
       <div className="t-center s-text8 p-t-20">

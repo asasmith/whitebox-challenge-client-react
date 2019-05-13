@@ -1,26 +1,28 @@
 import React from 'react';
+import logo from '../../images/icons/logo.png';
+import login from '../../images/icons/icon-header-01.png';
+import cart from '../../images/icons/icon-header-02.png';
+import cart1 from '../../images/item-cart-01.jpg';
+import cart2 from '../../images/item-cart-02.jpg';
+import cart3 from '../../images/item-cart-03.jpg';
 
 const HeaderMobile = () => (
   <div className="wrap_header_mobile">
     <a href="index.html" className="logo-mobile">
-      <img src="images/icons/logo.png" alt="IMG-LOGO" />
+      <img src={logo} alt="IMG-LOGO" />
     </a>
 
     <div className="btn-show-menu">
       <div className="header-icons-mobile">
         <a href="#" className="header-wrapicon1 dis-block">
-          <img
-            src="images/icons/icon-header-01.png"
-            className="header-icon1"
-            alt="ICON"
-          />
+          <img src={login} className="header-icon1" alt="ICON" />
         </a>
 
         <span className="linedivide2" />
 
         <div className="header-wrapicon2">
           <img
-            src="images/icons/icon-header-02.png"
+            src={cart}
             className="header-icon1 js-show-header-dropdown"
             alt="ICON"
           />
@@ -30,7 +32,7 @@ const HeaderMobile = () => (
             <ul className="header-cart-wrapitem">
               <li className="header-cart-item">
                 <div className="header-cart-item-img">
-                  <img src="images/item-cart-01.jpg" alt="IMG" />
+                  <img src={cart1} alt="IMG" />
                 </div>
 
                 <div className="header-cart-item-txt">
@@ -44,7 +46,7 @@ const HeaderMobile = () => (
 
               <li className="header-cart-item">
                 <div className="header-cart-item-img">
-                  <img src="images/item-cart-02.jpg" alt="IMG" />
+                  <img src={cart2} alt="IMG" />
                 </div>
 
                 <div className="header-cart-item-txt">
@@ -58,7 +60,7 @@ const HeaderMobile = () => (
 
               <li className="header-cart-item">
                 <div className="header-cart-item-img">
-                  <img src="images/item-cart-03.jpg" alt="IMG" />
+                  <img src={cart3} alt="IMG" />
                 </div>
 
                 <div className="header-cart-item-txt">
