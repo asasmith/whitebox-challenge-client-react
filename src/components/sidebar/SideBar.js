@@ -2,9 +2,11 @@
 /* eslint-disable jsx-a11y/label-has-associated-control */
 // Todo review these jsx-ally issues
 import React from 'react';
-import Slider from '../slider/Slider';
 
-const SideBar = () => (
+import Slider from '../slider/Slider';
+import Search from './Search';
+
+const SideBar = ({ searchVal, handleInputChange, handleSearchFilter }) => (
   <div className="col-sm-6 col-md-4 col-lg-3 p-b-50">
     <div className="leftbar p-r-20 p-r-0-sm">
       <h4 className="m-text14 p-b-7">Categories</h4>
@@ -166,21 +168,11 @@ const SideBar = () => (
         </ul>
       </div>
 
-      <div className="search-product pos-relative bo4 of-hidden">
-        <input
-          className="s-text7 size6 p-l-23 p-r-50"
-          type="text"
-          name="search-product"
-          placeholder="Search Products..."
-        />
-
-        <button
-          type="button"
-          className="flex-c-m size5 ab-r-m color2 color0-hov trans-0-4"
-        >
-          <i className="fs-12 fa fa-search" aria-hidden="true" />
-        </button>
-      </div>
+      <Search
+        searchVal={searchVal}
+        handleInputChange={handleInputChange}
+        handleSearchFilter={handleSearchFilter}
+      />
     </div>
   </div>
 );

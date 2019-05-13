@@ -5,37 +5,15 @@ import ProductCard from './ProductCard';
 import FilterBar from './FilterBar';
 import './bootstrap-grid.css';
 
-export default class ProductList extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      // eslint-disable-next-line react/no-unused-state
-      products: [],
-    };
-  }
+const ProductList = ({ products }) => (
+  <div className="col-sm-6 col-md-8 col-lg-9 p-b-50">
+    <FilterBar products={products} />
+    <div className="row">
+      {products.map(product => (
+        <ProductCard key={product._id} product={product} />
+      ))}
+    </div>
+  </div>
+);
 
-  async componentDidMount() {
-    try {
-      const res = await fetch('http://localhost:1111/products');
-      const products = await res.json();
-      this.setState({
-        products,
-      });
-    } catch (e) {
-      console.log(e);
-    }
-  }
-
-  render() {
-    return (
-      <div className="col-sm-6 col-md-8 col-lg-9 p-b-50">
-        <FilterBar products={this.state.products} />
-        <div className="row">
-          {this.state.products.map(product => (
-            <ProductCard key={product._id} product={product} />
-          ))}
-        </div>
-      </div>
-    );
-  }
-}
+export default ProductList;
