@@ -27,14 +27,30 @@ export default class ProductsLayout extends Component {
     try {
       const res = await fetch('http://localhost:1111/products');
       const products = await res.json();
-      this.setState({
-        products,
-        displayedProducts: products,
-        searchVal: '',
-      });
+      this.setState(
+        {
+          products,
+          displayedProducts: products,
+          searchVal: '',
+        },
+        () => {
+          this.getMaxPrice();
+        }
+      );
     } catch (e) {
       console.log(e);
     }
+  }
+
+  getMaxPrice() {
+    const { products } = this.state;
+    const { price: maxVal } = products.reduce((max, item) =>
+      parseFloat(item.price) > max ? item.price : max
+    );
+
+    this.setState({
+      maxVal,
+    });
   }
 
   handleInputChange(event) {
@@ -123,7 +139,13 @@ export default class ProductsLayout extends Component {
   }
 
   render() {
-    const { displayedProducts, searchVal, priceVal } = this.state;
+    const {
+      displayedProducts,
+      searchVal,
+      priceVal,
+      maxVal,
+      priceRange,
+    } = this.state;
     return (
       <div>
         <Hero />
@@ -132,6 +154,8 @@ export default class ProductsLayout extends Component {
             <div className="row">
               <SideBar
                 searchVal={searchVal}
+                maxVal={maxVal}
+                priceRange={priceRange}
                 handleInputChange={this.handleInputChange}
                 filter={this.filter}
               />
