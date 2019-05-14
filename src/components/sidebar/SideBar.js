@@ -50,7 +50,7 @@ const SideBar = ({ searchVal, handleInputChange, filter }) => (
 
         <div className="wra-filter-bar">
           <div id="filter-bar">
-            <Slider />
+            <input type="range" min="0" max="100" />
           </div>
         </div>
 
