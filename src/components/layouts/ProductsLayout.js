@@ -3,6 +3,7 @@ import React, { Component } from 'react';
 import Hero from '../hero/Hero';
 import ProductList from '../products/ProductsList';
 import SideBar from '../sidebar/SideBar';
+import { API_BASE_URL } from '../../config';
 import '../../css/main.css';
 import '../../css/util.css';
 import '../../vendor/bootstrap/css/bootstrap-grid.css';
@@ -26,7 +27,7 @@ export default class ProductsLayout extends Component {
 
   async componentDidMount() {
     try {
-      const res = await fetch('http://localhost:1111/products');
+      const res = await fetch(`${API_BASE_URL}/products`);
       const products = await res.json();
       this.setState(
         {
