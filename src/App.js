@@ -11,7 +11,6 @@ import Header from './components/header/Header';
 import Footer from './components/footer/Footer';
 import ProductsLayout from './components/layouts/ProductsLayout';
 import ProductDetailLayout from './components/layouts/ProductDetailLayout';
-
 import './css/main.css';
 import './css/font-awesome/font-awesome.css';
 
