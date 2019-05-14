@@ -1,7 +1,7 @@
 import React from 'react';
 import ProductList from './ProductsList';
 
-const FilterBar = ({ products }) => (
+const FilterBar = ({ products, priceVal, handlePriceValChange }) => (
   <div className="flex-sb-m flex-w p-b-35">
     <div className="flex-w">
       <div className="rs2-select2 bo4 of-hidden w-size12 m-t-5 m-b-5 m-r-10">
@@ -14,13 +14,18 @@ const FilterBar = ({ products }) => (
       </div>
 
       <div className="rs2-select2 bo4 of-hidden w-size12 m-t-5 m-b-5 m-r-10">
-        <select className="selection-2" name="sorting">
+        <select
+          className="selection-2"
+          name="sorting"
+          value={priceVal}
+          onChange={handlePriceValChange}
+        >
           <option>Price</option>
-          <option>$0.00 - $50.00</option>
-          <option>$50.00 - $100.00</option>
-          <option>$100.00 - $150.00</option>
-          <option>$150.00 - $200.00</option>
-          <option>$200.00+</option>
+          <option value="0-50">$0.00 - $50.00</option>
+          <option value="50-100">$50.00 - $100.00</option>
+          <option value="100-150">$100.00 - $150.00</option>
+          <option value="150-200">$150.00 - $200.00</option>
+          <option value="200-1000">$200.00+</option>
         </select>
       </div>
     </div>
