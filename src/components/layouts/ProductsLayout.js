@@ -73,19 +73,6 @@ export default class ProductsLayout extends Component {
 
   // Todo: add functionality to submit filter on keypress
 
-  // handlePriceValChange(e) {
-  //   this.setState(
-  //     {
-  //       filters: {
-  //         priceVal: e.target.value,
-  //       },
-  //     },
-  //     () => {
-  //       this.filter();
-  //     }
-  //   );
-  // }
-
   searchFilter(arr) {
     const { searchVal } = this.state;
     const filteredProducts = arr.filter(item =>
@@ -100,8 +87,7 @@ export default class ProductsLayout extends Component {
     const [min, max] = priceVal.split('-');
 
     const filteredProducts = arr.filter(
-      product =>
-        parseFloat(product.price) > min && parseFloat(product.price) < max
+      item => parseFloat(item.price) > min && parseFloat(item.price) < max
     );
 
     return filteredProducts;
