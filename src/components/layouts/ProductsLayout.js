@@ -158,6 +158,7 @@ export default class ProductsLayout extends Component {
       priceRange,
       sortVal,
     } = this.state;
+    console.log(API_BASE_URL);
     return (
       <div>
         <Hero />
