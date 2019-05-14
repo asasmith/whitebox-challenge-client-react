@@ -6,7 +6,7 @@ import React from 'react';
 import Slider from '../slider/Slider';
 import Search from './Search';
 
-const SideBar = ({ searchVal, handleInputChange, filter }) => (
+const SideBar = ({ searchVal, handleInputChange, priceRange, filter }) => (
   <div className="col-sm-6 col-md-4 col-lg-3 p-b-50">
     <div className="leftbar p-r-20 p-r-0-sm">
       <h4 className="m-text14 p-b-7">Categories</h4>
@@ -50,7 +50,14 @@ const SideBar = ({ searchVal, handleInputChange, filter }) => (
 
         <div className="wra-filter-bar">
           <div id="filter-bar">
-            <input type="range" min="0" max="100" />
+            <input
+              name="priceRange"
+              type="range"
+              min="0"
+              max="100"
+              value={priceRange}
+              onChange={handleInputChange}
+            />
           </div>
         </div>
 

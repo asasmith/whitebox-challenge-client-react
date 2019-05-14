@@ -5,7 +5,7 @@ const Search = ({ searchVal, handleInputChange, filter }) => (
     <input
       className="s-text7 size6 p-l-23 p-r-50"
       type="text"
-      name="search-product"
+      name="searchVal"
       placeholder="Search Products..."
       value={searchVal}
       onChange={handleInputChange}

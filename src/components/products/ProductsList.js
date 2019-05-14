@@ -5,12 +5,12 @@ import ProductCard from './ProductCard';
 import FilterBar from './FilterBar';
 import './bootstrap-grid.css';
 
-const ProductList = ({ products, priceVal, handlePriceValChange }) => (
+const ProductList = ({ products, priceVal, handleInputChange }) => (
   <div className="col-sm-6 col-md-8 col-lg-9 p-b-50">
     <FilterBar
       products={products}
       priceFilter={priceVal}
-      handlePriceValChange={handlePriceValChange}
+      handleInputChange={handleInputChange}
     />
     <div className="row">
       {products.map(product => (

@@ -15,15 +15,11 @@ export default class ProductsLayout extends Component {
       products: [],
       displayedProducts: [],
       searchVal: '',
-      filters: {
-        priceVal: '',
-      },
+      priceRange: '',
+      priceVal: '',
     };
 
     this.handleInputChange = this.handleInputChange.bind(this);
-    this.handlePriceValChange = this.handlePriceValChange.bind(this);
-    this.priceFilter = this.priceFilter.bind(this);
-    this.searchFilter = this.searchFilter.bind(this);
     this.filter = this.filter.bind(this);
   }
 
@@ -41,20 +37,16 @@ export default class ProductsLayout extends Component {
     }
   }
 
-  handleInputChange(e) {
-    this.setState({
-      searchVal: e.target.value,
-    });
-  }
+  handleInputChange(event) {
+    const {
+      target,
+      target: { name },
+    } = event;
+    const value = target.type === 'checkbox' ? target.checked : target.value;
 
-  // Todo: add functionality to submit filter on keypress
-
-  handlePriceValChange(e) {
     this.setState(
       {
-        filters: {
-          priceVal: e.target.value,
-        },
+        [name]: value,
       },
       () => {
         this.filter();
@@ -62,17 +54,32 @@ export default class ProductsLayout extends Component {
     );
   }
 
+  // Todo: add functionality to submit filter on keypress
+
+  // handlePriceValChange(e) {
+  //   this.setState(
+  //     {
+  //       filters: {
+  //         priceVal: e.target.value,
+  //       },
+  //     },
+  //     () => {
+  //       this.filter();
+  //     }
+  //   );
+  // }
+
   searchFilter(arr) {
     const { searchVal } = this.state;
-    const filteredProducts = arr.filter(item => item.name.includes(searchVal));
+    const filteredProducts = arr.filter(item =>
+      item.name.toLowerCase().includes(searchVal.toLowerCase())
+    );
 
     return filteredProducts;
   }
 
   priceFilter(arr) {
-    const {
-      filters: { priceVal },
-    } = this.state;
+    const { priceVal } = this.state;
     const [min, max] = priceVal.split('-');
 
     const filteredProducts = arr.filter(
@@ -83,12 +90,18 @@ export default class ProductsLayout extends Component {
     return filteredProducts;
   }
 
+  priceRange(arr) {
+    const { priceRange } = this.state;
+
+    const filteredProducts = arr.filter(
+      item => parseFloat(item.price) < priceRange
+    );
+
+    return filteredProducts;
+  }
+
   filter() {
-    const {
-      products,
-      searchVal,
-      filters: { priceVal },
-    } = this.state;
+    const { products, searchVal, priceRange, priceVal } = this.state;
 
     let filteredProducts = products;
 
@@ -100,17 +113,17 @@ export default class ProductsLayout extends Component {
       filteredProducts = this.priceFilter(filteredProducts);
     }
 
+    if (priceRange) {
+      filteredProducts = this.priceRange(filteredProducts);
+    }
+
     this.setState({
       displayedProducts: filteredProducts,
     });
   }
 
   render() {
-    const {
-      displayedProducts,
-      searchVal,
-      filters: { priceVal },
-    } = this.state;
+    const { displayedProducts, searchVal, priceVal } = this.state;
     return (
       <div>
         <Hero />
@@ -125,7 +138,7 @@ export default class ProductsLayout extends Component {
               <ProductList
                 products={displayedProducts}
                 priceVal={priceVal}
-                handlePriceValChange={this.handlePriceValChange}
+                handleInputChange={this.handleInputChange}
               />
             </div>
           </div>
