@@ -1,15 +1,20 @@
 import React from 'react';
 import ProductList from './ProductsList';
 
-const FilterBar = ({ products, priceVal, handleInputChange }) => (
+const FilterBar = ({ products, priceVal, sortVal, handleInputChange }) => (
   <div className="flex-sb-m flex-w p-b-35">
     <div className="flex-w">
       <div className="rs2-select2 bo4 of-hidden w-size12 m-t-5 m-b-5 m-r-10">
-        <select className="selection-2" name="sorting">
+        <select
+          className="selection-2"
+          name="sortVal"
+          value={sortVal}
+          onChange={handleInputChange}
+        >
           <option>Default Sorting</option>
           <option>Popularity</option>
-          <option>Price: low to high</option>
-          <option>Price: high to low</option>
+          <option value="low">Price: low to high</option>
+          <option value="high">Price: high to low</option>
         </select>
       </div>
 

@@ -17,6 +17,7 @@ export default class ProductsLayout extends Component {
       searchVal: '',
       priceRange: '',
       priceVal: '',
+      sortVal: '',
     };
 
     this.handleInputChange = this.handleInputChange.bind(this);
@@ -116,8 +117,27 @@ export default class ProductsLayout extends Component {
     return filteredProducts;
   }
 
+  sortByPrice(arr) {
+    const { sortVal } = this.state;
+    const sortedProducts = arr;
+
+    if (sortVal === 'low') {
+      return sortedProducts.sort(
+        (a, b) => parseFloat(a.price) - parseFloat(b.price)
+      );
+    }
+
+    if (sortVal === 'high') {
+      return sortedProducts.sort(
+        (a, b) => parseFloat(b.price) - parseFloat(a.price)
+      );
+    }
+
+    return sortedProducts;
+  }
+
   filter() {
-    const { products, searchVal, priceRange, priceVal } = this.state;
+    const { products, searchVal, priceRange, priceVal, sortVal } = this.state;
 
     let filteredProducts = products;
 
@@ -133,6 +153,10 @@ export default class ProductsLayout extends Component {
       filteredProducts = this.priceRange(filteredProducts);
     }
 
+    if (sortVal !== '') {
+      filteredProducts = this.sortByPrice(filteredProducts);
+    }
+
     this.setState({
       displayedProducts: filteredProducts,
     });
@@ -145,6 +169,7 @@ export default class ProductsLayout extends Component {
       priceVal,
       maxVal,
       priceRange,
+      sortVal,
     } = this.state;
     return (
       <div>
@@ -162,6 +187,7 @@ export default class ProductsLayout extends Component {
               <ProductList
                 products={displayedProducts}
                 priceVal={priceVal}
+                sortVal={sortVal}
                 handleInputChange={this.handleInputChange}
               />
             </div>
