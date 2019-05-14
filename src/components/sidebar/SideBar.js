@@ -2,8 +2,6 @@
 /* eslint-disable jsx-a11y/label-has-associated-control */
 // Todo review these jsx-ally issues
 import React from 'react';
-
-import Slider from '../slider/Slider';
 import Search from './Search';
 
 const SideBar = ({
