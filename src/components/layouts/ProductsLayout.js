@@ -3,11 +3,11 @@ import React, { Component } from 'react';
 import Hero from '../hero/Hero';
 import ProductList from '../products/ProductsList';
 import SideBar from '../sidebar/SideBar';
-import { BASE_URL } from '../../config';
 import '../../css/main.css';
 import '../../css/util.css';
 import '../../vendor/bootstrap/css/bootstrap-grid.css';
 
+const BASE_URL = process.env.BASE_URL || 'http://localhost:1111';
 export default class ProductsLayout extends Component {
   constructor(props) {
     super(props);
