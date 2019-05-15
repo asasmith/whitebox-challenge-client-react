@@ -7,6 +7,7 @@ import '../../css/main.css';
 import '../../css/util.css';
 import '../../vendor/bootstrap/css/bootstrap-grid.css';
 
+console.log(process.env);
 const BASE_URL = process.env.BASE_URL || 'http://localhost:1111';
 export default class ProductsLayout extends Component {
   constructor(props) {

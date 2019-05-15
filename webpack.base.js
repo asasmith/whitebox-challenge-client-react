@@ -8,9 +8,6 @@ const htmlPlugin = new HtmlWebPackPlugin({
 });
 
 const definePlugin = new webpack.DefinePlugin({
-  'process.env': {
-    NODE_ENV: JSON.stringify(process.env.NODE_ENV),
-  },
   BASE_URL: JSON.stringify(process.env.BASE_URL),
 });
 
