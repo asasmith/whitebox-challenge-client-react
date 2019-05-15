@@ -1,6 +1,7 @@
 const path = require('path');
 const webpack = require('webpack');
 const HtmlWebPackPlugin = require('html-webpack-plugin');
+const Dotenv = require('dotenv-webpack');
 
 const htmlPlugin = new HtmlWebPackPlugin({
   template: './src/index.html',
@@ -8,10 +9,14 @@ const htmlPlugin = new HtmlWebPackPlugin({
 });
 
 const definePlugin = new webpack.DefinePlugin({
-  'process.env': {
-    NODE_ENV: JSON.stringify(process.env.NODE_ENV),
-  },
-  BASE_URL: JSON.stringify(process.env.BASE_URL),
+  _TEST_: JSON.stringify('testing'),
+});
+
+const dotenv = new Dotenv({
+  path: './.env',
+  safe: true,
+  systemvars: false,
+  silent: false,
 });
 
 module.exports = {
@@ -46,5 +51,5 @@ module.exports = {
   devServer: {
     historyApiFallback: true,
   },
-  plugins: [htmlPlugin, definePlugin],
+  plugins: [htmlPlugin, definePlugin, dotenv],
 };

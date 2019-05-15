@@ -7,8 +7,14 @@ import '../../css/main.css';
 import '../../css/util.css';
 import '../../vendor/bootstrap/css/bootstrap-grid.css';
 
+// console.log(process.env.__URL__);
+// const URL = process.env.__URL__ || 'http://localhost:1111';
 console.log(process.env);
-const BASE_URL = process.env.BASE_URL || 'http://localhost:1111';
+console.log(_TEST_);
+console.log(process.env);
+console.log(process.env.BASE_URL);
+console.log(process.env._TEST_);
+
 export default class ProductsLayout extends Component {
   constructor(props) {
     super(props);
@@ -28,7 +34,7 @@ export default class ProductsLayout extends Component {
 
   async componentDidMount() {
     try {
-      const res = await fetch(`${BASE_URL}/products`);
+      const res = await fetch(`${URL}/products`);
       const products = await res.json();
       this.setState(
         {
@@ -159,7 +165,7 @@ export default class ProductsLayout extends Component {
       priceRange,
       sortVal,
     } = this.state;
-    console.log(BASE_URL);
+
     return (
       <div>
         <Hero />

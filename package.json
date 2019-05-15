@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "dev": "webpack-dev-server --config webpack.dev.js",
-    "start": "webpack-dev-server --mode development",
+    "start": "webpack-dev-server --config webpack.base.js",
     "build": "webpack --config webpack.prod.js",
     "test": "echo \"Error: no test specified\" && exit 1",
     "lint": "eslint ."
@@ -14,7 +14,7 @@
   "license": "ISC",
   "devDependencies": {
     "@babel/core": "^7.3.4",
-    "@babel/preset-env": "^7.3.4",
+    "@babel/preset-env": "^7.4.4",
     "@babel/preset-react": "^7.0.0",
     "babel-eslint": "^10.0.1",
     "babel-loader": "^8.0.5",
@@ -37,6 +37,7 @@
   },
   "dependencies": {
     "babel-polyfill": "^6.26.0",
+    "dotenv-webpack": "^1.7.0",
     "jquery": "^3.4.1",
     "path": "^0.12.7",
     "react": "^16.8.6",
