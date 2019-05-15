@@ -7,8 +7,6 @@ import '../../css/main.css';
 import '../../css/util.css';
 import '../../vendor/bootstrap/css/bootstrap-grid.css';
 
-console.log(_TEST_);
-
 export default class ProductsLayout extends Component {
   constructor(props) {
     super(props);
@@ -28,7 +26,7 @@ export default class ProductsLayout extends Component {
 
   async componentDidMount() {
     try {
-      const res = await fetch(`${URL}/products`);
+      const res = await fetch(`${BASE_URL}/products`);
       const products = await res.json();
       this.setState(
         {

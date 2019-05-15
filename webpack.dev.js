@@ -3,7 +3,7 @@ const merge = require('webpack-merge');
 const base = require('./webpack.base.js');
 
 const definePlugin = new DefinePlugin({
-  _TEST_: JSON.stringify('dev'),
+  BASE_URL: JSON.stringify('http://localhost:1111'),
 });
 
 module.exports = merge(base, {

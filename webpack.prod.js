@@ -3,7 +3,9 @@ const merge = require('webpack-merge');
 const base = require('./webpack.base.js');
 
 const definePlugin = new DefinePlugin({
-  _TEST_: JSON.stringify('production'),
+  BASE_URL: JSON.stringify(
+    'https://dashboard.heroku.com/apps/stormy-lowlands-15129'
+  ),
 });
 
 module.exports = merge(base, {
