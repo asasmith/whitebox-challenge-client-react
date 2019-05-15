@@ -1,28 +1,17 @@
 const path = require('path');
 const webpack = require('webpack');
 const HtmlWebPackPlugin = require('html-webpack-plugin');
-// const CopyPlugin = require('copy-webpack-plugin');
 
 const htmlPlugin = new HtmlWebPackPlugin({
   template: './src/index.html',
   filename: './index.html',
 });
 
-const providePlugin = new webpack.ProvidePlugin({
-  noUiSlider: 'nouislider',
+const definePlugin = new webpack.DefinePlugin({
+  'process.env': {
+    NODE_ENV: JSON.stringify(process.env.NODE_ENV),
+  },
 });
-
-// this isn't working how I hoped it would
-// const copyPlugin = new CopyPlugin([
-//   {
-//     from: './src/vendor',
-//     to: 'vendor/',
-//   },
-//   {
-//     from: './src/css',
-//     to: 'css/',
-//   },
-// ]);
 
 module.exports = {
   entry: ['babel-polyfill', 'jquery', './src/index'],
@@ -56,5 +45,5 @@ module.exports = {
   devServer: {
     historyApiFallback: true,
   },
-  plugins: [htmlPlugin, providePlugin],
+  plugins: [htmlPlugin, definePlugin],
 };
