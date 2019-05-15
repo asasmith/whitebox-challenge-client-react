@@ -7,13 +7,7 @@ import '../../css/main.css';
 import '../../css/util.css';
 import '../../vendor/bootstrap/css/bootstrap-grid.css';
 
-// console.log(process.env.__URL__);
-// const URL = process.env.__URL__ || 'http://localhost:1111';
-console.log(process.env);
 console.log(_TEST_);
-console.log(process.env);
-console.log(process.env.BASE_URL);
-console.log(process.env._TEST_);
 
 export default class ProductsLayout extends Component {
   constructor(props) {

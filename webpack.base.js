@@ -8,19 +8,17 @@ const htmlPlugin = new HtmlWebPackPlugin({
   filename: './index.html',
 });
 
-const definePlugin = new webpack.DefinePlugin({
-  _TEST_: JSON.stringify('testing'),
-});
+console.log(path.resolve(__dirname));
 
 const dotenv = new Dotenv({
-  path: './.env',
+  path: './src/.env',
   safe: true,
   systemvars: false,
   silent: false,
 });
 
 module.exports = {
-  entry: ['babel-polyfill', 'jquery', './src/index'],
+  entry: ['babel-polyfill', './src/index'],
   output: {
     path: path.resolve(__dirname, 'dist'),
     publicPath: '/',
@@ -51,5 +49,5 @@ module.exports = {
   devServer: {
     historyApiFallback: true,
   },
-  plugins: [htmlPlugin, definePlugin, dotenv],
+  plugins: [htmlPlugin, dotenv],
 };
