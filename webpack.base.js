@@ -2,13 +2,12 @@ const path = require('path');
 const webpack = require('webpack');
 const HtmlWebPackPlugin = require('html-webpack-plugin');
 const Dotenv = require('dotenv-webpack');
+const CopyPlugin = require('copy-webpack-plugin');
 
 const htmlPlugin = new HtmlWebPackPlugin({
   template: './src/index.html',
   filename: './index.html',
 });
-
-console.log(path.resolve(__dirname));
 
 const dotenv = new Dotenv({
   path: './src/.env',
@@ -16,6 +15,14 @@ const dotenv = new Dotenv({
   systemvars: false,
   silent: false,
 });
+
+const copyPlugin = new CopyPlugin([
+  {
+    from: './src/_redirects',
+    to: '_redirects',
+    toType: 'file',
+  },
+]);
 
 module.exports = {
   entry: ['babel-polyfill', './src/index'],
@@ -44,10 +51,14 @@ module.exports = {
         test: /\.(woff|woff2|eot|ttf|otf)$/,
         use: ['file-loader'],
       },
+      {
+        test: /redirects/,
+        use: ['file-loader'],
+      },
     ],
   },
   devServer: {
     historyApiFallback: true,
   },
-  plugins: [htmlPlugin, dotenv],
+  plugins: [htmlPlugin, dotenv, copyPlugin],
 };
