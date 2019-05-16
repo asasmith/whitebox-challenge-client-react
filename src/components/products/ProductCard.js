@@ -27,7 +27,7 @@ const ProductCard = ({ product }) => (
         </div>
       </div>
 
-      <Link to={`${BASE_URL}/${product._id}`}>
+      <Link to={`/${product._id}`}>
         <div className="block2-txt p-t-20">
           <div className="block2-name dis-block s-text3 p-b-5">
             {product.name}
