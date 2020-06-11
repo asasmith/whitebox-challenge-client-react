@@ -16,7 +16,7 @@ export default class ProductDetail extends Component {
   async componentDidMount() {
     try {
       const res = await fetch(
-        `http://localhost:1111/products/${this.props.id}`
+        `${BASE_URL}/products/${this.props.id}`
       );
       const product = await res.json();
       this.setState({
