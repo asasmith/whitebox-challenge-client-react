@@ -38,7 +38,7 @@
   "dependencies": {
     "babel-polyfill": "^6.26.0",
     "dotenv-webpack": "^1.7.0",
-    "jquery": "^3.4.1",
+    "jquery": "^3.5.0",
     "path": "^0.12.7",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
